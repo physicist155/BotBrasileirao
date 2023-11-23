@@ -24,10 +24,10 @@ jobs:
 
     - name: Set up Environment Variables
       run: |
-        echo "ACCESS_KEY=${{ secrets.ACCESS_KEY }}" >> $GITHUB_ENV
-        echo "ACCESS_SECRET=${{ secrets.ACCESS_SECRET }}" >> $GITHUB_ENV
-        echo "USER_KEY=${{ secrets.USER_KEY }}" >> $GITHUB_ENV
-        echo "USER_SECRET=${{ secrets.USER_SECRET }}" >> $GITHUB_ENV
+        ACCESS_KEY= ${{ secrets.ACCESS_KEY }} 
+        ACCESS_SECRET=${{ secrets.ACCESS_SECRET }}
+        USER_KEY=${{ secrets.USER_KEY }}
+        USER_SECRET=${{ secrets.USER_SECRET }}
 
     - name: Run Main Script
       run: python main.py
