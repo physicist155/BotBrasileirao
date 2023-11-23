@@ -1,20 +1,16 @@
 import tweepy
 
-#Instalattion/Acess to Twitter account
-consumer_key = 'LYWidG629E3zktPHpiBEtRPR1'
-consumer_secret = 'yOyw5n1AXJ5yzW6gg5x8WYbo1pcxn0CjXDNq4PUDEOjipHjPCY'
-access_token = '1726243424901206016-lobupBU226FPMjpB6rgfCK1TFUAXe6'
-access_token_secret='jYhR8nLC49cXgRvaT8C7XMUZijbwKxtsKbcIQbol5xmWd'
+#Instalattion/Access to Twitter account
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth, wait_on_rate_limit = True)
 
 client = tweepy.Client(
-    consumer_key = 'LYWidG629E3zktPHpiBEtRPR1',
-    consumer_secret = 'yOyw5n1AXJ5yzW6gg5x8WYbo1pcxn0CjXDNq4PUDEOjipHjPCY',
-    access_token = '1726243424901206016-lobupBU226FPMjpB6rgfCK1TFUAXe6',
-    access_token_secret = 'jYhR8nLC49cXgRvaT8C7XMUZijbwKxtsKbcIQbol5xmWd'
+    consumer_key = ,
+    consumer_secret = ,
+    access_token = ,
+    access_token_secret = 
 )
 
 
