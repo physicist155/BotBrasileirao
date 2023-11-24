@@ -1,9 +1,10 @@
 name: Tweet Daily
 
 on:
-  push:
-    branches:
-      - main
+  schedule:
+    # Runs at 9 AM every day
+    - cron: '0 9 * * *'
+
 
 jobs:
   tweet:
