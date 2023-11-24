@@ -48,4 +48,4 @@ def upload_media(text, filename):
 
 # Example usage (uncomment to use)
 # post_tweet("Hello Twitter!")
-# upload_media("Hello with media!", "path/to/your/image.jpg")
+# upload_media("Hello with media!", "path/to/your/image.jpg")   
