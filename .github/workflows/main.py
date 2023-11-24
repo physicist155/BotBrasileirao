@@ -23,4 +23,4 @@ def upload_media(text, filename):
     media = api.media_upload(filename)
     api.update_status(text,media_ids=[media.media_id_string])
 
-post_tweet(text="test")
+post_tweet(text="test")  
