@@ -47,5 +47,5 @@ def upload_media(text, filename):
     api.update_status(text, media_ids=[media.media_id_string])
 
 # Example usage (uncomment to use)
-# post_tweet("Hello Twitter!")
+ post_tweet("Fred é V4D14!")
 # upload_media("Hello with media!", "path/to/your/image.jpg")   
