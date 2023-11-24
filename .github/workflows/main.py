@@ -1,50 +1,51 @@
-import tweepy
 import os
+import tweepy
 
-#Instalattion/Access to Twitter account
+# Load environment variables
+CONSUMER_KEY = os.getenv("CONSUMER_KEY")
+CONSUMER_SECRET = os.getenv("CONSUMER_SECRET")
+ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
+ACCESS_TOKEN_SECRET = os.getenv("ACCESS_TOKEN_SECRET")
 
-client = tweepy.Client(
-    consumer_key = os.environ.get("CONSUMER_KEY"),
-    consumer_secret = os.environ.get("CONSUMER_SECRET"),
-    access_token = os.environ.get("ACCESS_TOKEN"),
-    access_token_secret = os.environ.get("ACCESS_TOKEN_SECRET")
-)
+# Ensure all keys are available
+if not all([CONSUMER_KEY, CONSUMER_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET]):
+    raise ValueError("One or more required environment variables are missing.")
 
-#calling secret variables
-CONSUMER_KEY = os.environ.get("CONSUMER_KEY")
-CONSUMER_SECRET = os.environ.get("CONSUMER_SECRET")
-ACCESS_TOKEN = os.environ.get("ACCESS_TOKEN")
-ACCESS_TOKEN_SECRET = os.environ.get("ACCESS_TOKEN_SECRET")
-
-#connect on twitter
+# Authentication with Twitter
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 api = tweepy.API(auth, wait_on_rate_limit=True)
 
-API_KEY = os.environ.get("API_KEY")
-#Função para trocar a foto de perfil da conta
-def profile_image(filename):
-    api.update_profile_image(filename)
+# Initialize Tweepy Client
+client = tweepy.Client(
+    consumer_key=CONSUMER_KEY,
+    consumer_secret=CONSUMER_SECRET,
+    access_token=ACCESS_TOKEN,
+    access_token_secret=ACCESS_TOKEN_SECRET
+)
 
-#Função para atualizar informações da conta
+# Profile update function
 def update_profile_info(params):
     api.update_profile(**params)
 
+# Update profile information
 profile_info = {
     'name': 'Bot (?)',
     'url': 'https://twitter.com/Bot1631973',
     'location': 'Salvador, Brasil',
     'description': 'Eu ainda não tenho propósito.'
 }
-#update_profile_info(profile_info)
+update_profile_info(profile_info)
 
+# Function to post a tweet
 def post_tweet(text):
-    client.create_tweet(text)
+    client.create_tweet(text=text)
 
+# Function to upload media and post a tweet
 def upload_media(text, filename):
     media = api.media_upload(filename)
-    api.update_status(text,media_ids=[media.media_id_string])
-    
-#texto = "Teste"
-#client.create_tweet(text = texto, user_auth=True)  
-update_profile_info(profile_info)  
+    api.update_status(text, media_ids=[media.media_id_string])
+
+# Example usage (uncomment to use)
+# post_tweet("Hello Twitter!")
+# upload_media("Hello with media!", "path/to/your/image.jpg")
