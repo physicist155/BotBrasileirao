@@ -40,5 +40,5 @@ def upload_media(text, filename):
     media = api.media_upload(filename)
     api.update_status(text,media_ids=[media.media_id_string])
     
-text = 'Bolsonaro é v4d14'
+text = "Teste"
 client.create_tweet(text)  
