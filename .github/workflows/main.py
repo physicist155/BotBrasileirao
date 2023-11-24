@@ -29,4 +29,4 @@ def upload_media(text, filename):
     
 #texto = "Teste"
 #client.create_tweet(text = texto, user_auth=True)  
-update_profile_info(profile_info)
+update_profile_info(profile_info)  
