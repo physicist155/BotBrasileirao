@@ -28,7 +28,7 @@ def update_profile_info(params):
 profile_info = {
     'name': 'Bot (?)',
     'url': 'https://twitter.com/Bot1631973',
-    'location': 'São Paulo, Brasil',
+    'location': 'Salvador, Brasil',
     'description': 'Eu ainda não tenho propósito.'
 }
 #update_profile_info(profile_info)
@@ -40,5 +40,6 @@ def upload_media(text, filename):
     media = api.media_upload(filename)
     api.update_status(text,media_ids=[media.media_id_string])
     
-texto = "Teste"
-client.create_tweet(text = texto)  
+#texto = "Teste"
+#client.create_tweet(text = texto, user_auth=True)  
+update_profile_info(profile_info)
