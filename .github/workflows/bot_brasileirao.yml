@@ -24,7 +24,7 @@ jobs:
         pip install tweepy
 
     - name: Run Tweet Script
-      run: python main.py
+      run: python .github/workflows/main.py
       env:
         CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
         CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
