@@ -1,34 +1,32 @@
-name: Execute Main Script
+name: Tweet Daily
 
 on:
   schedule:
-    - cron: '0 9 * * *' # Executa todos os dias às 9 horas da manhã
+    # Executa todos os dias às 12:00 UTC
+    - cron: '0 12 * * *'
 
 jobs:
-  run-script:
-    runs-on: windows-latest
+  tweet:
+    runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Repository
+    - name: Checkout repository
       uses: actions/checkout@v2
 
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: 3.10
+        python-version: '3.10'
 
-    - name: Install Dependencies
+    - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install tweepy
 
-    - name: Set up Environment Variables
-      run: |
-        ACCESS_KEY= ${{ secrets.ACCESS_KEY }} 
-        ACCESS_SECRET=${{ secrets.ACCESS_SECRET }}
-        USER_KEY=${{ secrets.USER_KEY }}
-        USER_SECRET=${{ secrets.USER_SECRET }}
-
-    - name: Run Main Script
+    - name: Run Tweet Script
       run: python main.py
-
+      env:
+        CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+        CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
