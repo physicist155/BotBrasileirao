@@ -3,7 +3,7 @@ name: Tweet Daily
 on:
   schedule:
     # Runs at 9 AM every day
-    - cron: '* * * * *'
+    - cron: '0 9 * * *'
 
 
 jobs:
