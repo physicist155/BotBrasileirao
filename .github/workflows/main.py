@@ -84,13 +84,15 @@ for jogo in jogos:
     if 'match__md_card--live' in str(info_elemento):
         jogo_id = f"{time_casa} vs {time_visitante}"
         if jogo_id in placares_anteriores and placares_anteriores[jogo_id] != placar:
-            print(f"Gol no jogo {jogo_id} no {minuto_gol}. Novo placar: {placar}")
+            post_tweet(f"Gol no jogo {jogo_id} no {minuto_gol}. Novo placar: {placar}")
             gols_time_casa, gols_visitante = map(int, placar.split(' - '))
             gols_anteriores_time_casa, gols_anteriores_visitante = map(int, placares_anteriores[jogo_id].split(' - '))
             if gols_time_casa > gols_anteriores_time_casa:
-                print(f"Gol marcado pelo time da casa: {time_casa}")
+               #print(f"Gol marcado pelo time da casa: {time_casa}")
+                post_tweet(f"Gol marcado pelo time da casa: {time_casa}")
             if gols_visitante > gols_anteriores_visitante:
-                print(f"Gol marcado pelo time visitante: {time_visitante}")
+                post_tweet(f"Gol marcado pelo time visitante: {time_visitante}")
+                #print(f"Gol marcado pelo time visitante: {time_visitante}")
         placares_atualizados[jogo_id] = placar
 
 save_current_scores(placares_atualizados)
