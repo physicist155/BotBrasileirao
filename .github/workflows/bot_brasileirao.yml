@@ -26,13 +26,10 @@ jobs:
           pip install beautifulsoup4
           pip install firebase_admin
 
-      - name: Run Tweet Script
-        run: python .github/workflows/main.py
+
+      - name: Run Build JSON Script
+        run: python .github/workflows/fill_json.py
         env:
-          CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
-          CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
           PRIVATE_KEY_ID: ${{ secrets.PRIVATE_KEY_ID }}
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
           CLIENT_EMAIL: ${{ secrets.CLIENT_EMAIL }}
@@ -42,4 +39,12 @@ jobs:
           AUTH_PROVIDER_X509_CERT_URL: ${{ secrets.AUTH_PROVIDER_X509_CERT_URL }}
           CLIENT_X509_CERT_URL: ${{ secrets.CLIENT_X509_CERT_URL }}
           UNIVERSE_DOMAIN: ${{ secrets.UNIVERSE_DOMAIN }}
+
+      - name: Run Tweet Script
+        run: python .github/workflows/main.py
+        env:
+          CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+          CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
 
