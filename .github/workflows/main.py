@@ -9,7 +9,7 @@ from firebase_admin import db
 
 # Configuração do Firebase
 if not firebase_admin._apps:
-    cred = credentials.Certificate('.github/workflows/fill_json.py')
+    cred = credentials.Certificate('service_account.json')
     firebase_admin.initialize_app(cred, {
         'databaseURL': 'https://bot-brasileirao-default-rtdb.firebaseio.com/'
     })
