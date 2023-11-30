@@ -1,6 +1,7 @@
 ##versão v.1.1
 import os
 import tweepy
+from auth import API_KEY, client, api
 import requests
 from bs4 import BeautifulSoup
 import firebase_admin
