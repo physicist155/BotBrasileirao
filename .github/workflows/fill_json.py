@@ -16,7 +16,7 @@ json_content = {
     "universe_domain": os.getenv('UNIVERSE_DOMAIN')
 }
 
-print('EU ESTOU SENDO PRINTANDO PELO FILL_JSON.PY")
+print("EU ESTOU SENDO PRINTANDO PELO FILL_JSON.PY")
 # Escreve o dicionário em um arquivo JSON
 with open('service_account.json', 'w') as json_file:
     json.dump(json_content, json_file, indent=4)
