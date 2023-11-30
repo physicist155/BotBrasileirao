@@ -64,4 +64,3 @@ for jogo in jogos:
         placares_atualizados[jogo_id] = placar
 
 save_current_scores(placares_atualizados)
-post_tweet("Testando")
