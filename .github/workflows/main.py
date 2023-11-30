@@ -64,5 +64,3 @@ for jogo in jogos:
         placares_atualizados[jogo_id] = placar
 
 save_current_scores(placares_atualizados)
-time_casa = '0'
-post_tweet(f"Gol marcado pelo time da casa: {time_casa}")
